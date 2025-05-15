@@ -5,16 +5,16 @@
 #include <cmath>
 
 namespace PolynomialOps {
-    /** @brief Add two polynomials */
     CPolynomial add(const CPolynomial& lhs, const CPolynomial& rhs);
 
-    /** @brief Subtract rhs from lhs */
     CPolynomial subtract(const CPolynomial& lhs, const CPolynomial& rhs);
 
-    /** @brief Compute derivative of a polynomial */
     CPolynomial derivative(const CPolynomial& poly);
 
-    /** @brief Compare two polynomials within tolerance */
+    CPolynomial multiply(const CPolynomial& lhs, const CPolynomial& rhs);
+
+    CPolynomial divide(const CPolynomial& lhs, const CPolynomial& rhs);
+
     bool equal(const CPolynomial& lhs, const CPolynomial& rhs, double tol = 1e-12);
 }
 
@@ -32,12 +32,20 @@ inline CPolynomial& operator+=(CPolynomial& lhs, const CPolynomial& rhs) {
     return lhs;
 }
 
+inline CPolynomial operator*(const CPolynomial& lhs, const CPolynomial& rhs) {
+    return PolynomialOps::multiply(lhs, rhs);
+}
+
+inline CPolynomial& operator*=(CPolynomial& lhs, const CPolynomial& rhs) {
+    lhs = PolynomialOps::multiply(lhs, rhs);
+    return lhs;
+}
+
 inline CPolynomial& operator-=(CPolynomial& lhs, const CPolynomial& rhs) {
     lhs = PolynomialOps::subtract(lhs, rhs);
     return lhs;
 }
 
-// Equality operators
 inline bool operator==(const CPolynomial& lhs, const CPolynomial& rhs) {
     return PolynomialOps::equal(lhs, rhs);
 }
@@ -46,7 +54,6 @@ inline bool operator!=(const CPolynomial& lhs, const CPolynomial& rhs) {
     return !PolynomialOps::equal(lhs, rhs);
 }
 
-// Unary derivative operator
 inline CPolynomial operator~(const CPolynomial& poly) {
     return PolynomialOps::derivative(poly);
 }

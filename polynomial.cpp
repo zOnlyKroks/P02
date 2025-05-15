@@ -43,10 +43,9 @@ void CPolynomial::changeVariable(const char var) {
     }
 }
 
-double CPolynomial::operator[] (const int index) const {
-    if (index >= 0 && index < static_cast<int>(coefficients.size())) {
+double CPolynomial::operator[](int index) const {
+    if (index >= 0 && index < static_cast<int>(coefficients.size()))
         return coefficients[index];
-    }
     return 0.0;
 }
 

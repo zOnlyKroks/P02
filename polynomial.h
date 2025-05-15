@@ -16,10 +16,9 @@ public:
 
     [[nodiscard]] int degree() const;
     void changeVariable(char var);
+    double operator[](int index) const;
     [[nodiscard]] double evaluateAt(double x) const;
     [[nodiscard]] std::map<double, double> evaluateAt(const std::vector<double> &x) const;
-
-    double operator[] (int index) const;
 
     friend class CPolynomialIO;
     friend class CPolynomialOperations;

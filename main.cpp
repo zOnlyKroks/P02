@@ -47,6 +47,12 @@ int main() {
     std::cout << "\nTest A4.2: Testing subtraction operator" << std::endl;
     std::cout << "Difference: " << (poly - poly2) << std::endl;
 
+    // Test A4.3: Testing multiplication operator
+    std::cout << "\nTest A4.3: Testing multiplication operator" << std::endl;
+    std::cout << "Product: " << (poly * poly2) << std::endl;
+    std::cout << "Poly 1: " << poly << std::endl;
+    std::cout << "Poly 2: " << poly2 << std::endl;
+
     // Test A5: Testing += operator
     std::cout << "\nTest A5: Testing += operator" << std::endl;
     CPolynomial poly3 = poly;
