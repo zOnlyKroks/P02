@@ -1,5 +1,5 @@
 #include "polynomial.h"
-
+#include <cmath>
 #include <algorithm>
 
 CPolynomial::CPolynomial(const std::vector<double>& param, const bool reversed) {
